@@ -1,0 +1,27 @@
+#plate-display-left {
+    display: flex;
+    align-items: center;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    float: left;
+    border-style: dashed;
+    border-radius: 5px;
+    border-color: blue;
+}
+
+#plate-display-right {
+    display: flex;
+    align-items: center;
+    float: right;
+    border-style: dashed;
+    border-radius: 5px;
+    border-color: blue;
+}
+
+#plate-display {
+    margin-bottom: 150px;
+}
+
+body {
+    text-align: center;
+}

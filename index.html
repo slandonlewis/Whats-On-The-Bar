@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's On The Bar?</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <h1>What's On The Bar?</h1>
     <h2>Calculate what you are lifting</h2>
+
+    <!-- EXPERIMENTAL: Weight plate display -->
+    <div id="plate-display">
+        <div id="plate-display-left">
+            <!-- <p>Plate Images Go Here</p> -->
+        </div>
+        <div id="plate-display-right">
+            <!-- <p>Plate Images Go Here</p> -->
+        </div>
+    </div>
 
     <p id="amount-el">--</p>
     <input type="radio" id="pounds" name="unit" value="LBS" onclick="changeUnit('LBS')">
