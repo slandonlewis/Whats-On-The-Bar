@@ -27,12 +27,12 @@
         <div class="standard-plates">
             <p>Standard Olympic Plates (LBS)</p>
             <br>
-            <button id="45lb-plate">45 LBS</button>
-            <button id="35lb-plate">35 LBS</button>
-            <button id="25lb-plate">25 LBS</button>
-            <button id="10lb-plate">10 LBS</button>
-            <button id="5lb-plate">5 LBS</button>
-            <button id="2.5lb-plate">2.5 LBS</button>
+            <button id="45lb-plate" onclick="increaseLoad(45)">45 LBS</button>
+            <button id="35lb-plate" onclick="increaseLoad(35)">35 LBS</button>
+            <button id="25lb-plate" onclick="increaseLoad(25)">25 LBS</button>
+            <button id="10lb-plate" onclick="increaseLoad(10)">10 LBS</button>
+            <button id="5lb-plate" onclick="increaseLoad(5)">5 LBS</button>
+            <button id="2.5lb-plate" onclick="increaseLoad(2.5)">2.5 LBS</button>
         </div>
 
         <div class="competition-plates">
@@ -47,6 +47,8 @@
             <button id="1.25kg-plate">1.25 KGS</button>
             <button id="0.5kg-plate">0.5 KGS</button>
         </div>
+
+        <button onclick="decreaseLoad()">REMOVE LAST PLATE</button>
     </div>
     <script src="main.js"></script>
 </body>
