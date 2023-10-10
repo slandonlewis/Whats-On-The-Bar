@@ -32,9 +32,11 @@
         <option value="#">2</option>
         <option value="#">3</option>
     </select>
-
+    
     <div class="plate-selection">
         <h3>Plate Selection</h3>
+        <button onclick="decreaseLoad()">REMOVE LAST PLATE</button>
+        <button onclick="clearAll()">CLEAR ALL</button>
         <div class="standard-plates">
             <p>Standard Olympic Plates (LBS)</p>
             <br>
@@ -59,7 +61,6 @@
             <button id="0.5kg-plate">0.5 KGS</button>
         </div>
 
-        <button onclick="decreaseLoad()">REMOVE LAST PLATE</button>
     </div>
     <script src="main.js"></script>
 </body>

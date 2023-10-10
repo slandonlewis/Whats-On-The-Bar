@@ -65,3 +65,17 @@ let decreaseLoad = () => {
         plateDisplayRight.innerHTML = plateImages.join('')
     }
 }
+
+// empty the barbell
+let clearAll = () => {
+    plateArray = []
+    plateImages = []
+    plateDisplayLeft.innerHTML = ''
+    plateDisplayRight.innerHTML = ''
+    if (unitSetting === 'LBS') {
+        totalWeight = 45
+    } else {
+        totalWeight = 20
+    }
+    amountEl.textContent = `${totalWeight} ${unitSetting}`
+}
