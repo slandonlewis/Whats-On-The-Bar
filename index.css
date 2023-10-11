@@ -4,18 +4,18 @@
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     float: left;
-    border-style: dashed;
-    border-radius: 5px;
-    border-color: blue;
+    /* border-style: dashed; */
+    /* border-radius: 5px; */
+    /* border-color: blue; */
 }
 
 #plate-display-right {
     display: flex;
     align-items: center;
     float: right;
-    border-style: dashed;
-    border-radius: 5px;
-    border-color: blue;
+    /* border-style: dashed; */
+    /* border-radius: 5px; */
+    /* border-color: blue; */
 }
 
 #plate-display {

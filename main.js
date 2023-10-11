@@ -35,8 +35,12 @@ let changeUnit = (unitValue) => {
 
 // take value of selected weight and add two plates to each side of bar
 let increaseLoad = (plateWeight) => {
-    if ( totalWeight >= 1500 ) {
+    if ( totalWeight >= 1000 ) {
+        // limit bar weight
         alert('Nice try, bro. But that bar is definitely bent by now...')
+    } else if ( plateArray.length >= 11 ) {
+        // limit number of plates
+        alert(`Don't hog all the plates, brother!`)
     } else {
         let addedValue = plateWeight * 2
         totalWeight += addedValue
