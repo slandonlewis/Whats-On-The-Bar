@@ -37,30 +37,38 @@
         <h3>Plate Selection</h3>
         <button onclick="decreaseLoad()">REMOVE LAST PLATE</button>
         <button onclick="clearAll()">CLEAR ALL</button>
-        <div class="standard-plates">
-            <p>Standard Olympic Plates (LBS)</p>
-            <br>
-            <button id="45lb-plate" onclick="increaseLoad(45)">45 LBS</button>
-            <button id="35lb-plate" onclick="increaseLoad(35)">35 LBS</button>
-            <button id="25lb-plate" onclick="increaseLoad(25)">25 LBS</button>
-            <button id="10lb-plate" onclick="increaseLoad(10)">10 LBS</button>
-            <button id="5lb-plate" onclick="increaseLoad(5)">5 LBS</button>
-            <button id="2.5lb-plate" onclick="increaseLoad(2.5)">2.5 LBS</button>
+        <div id="plate-options-menu">
+            <h4>Standard Olympic Plates (LBS)</h4>
+            <div id="standard-plates">
+                <br>
+                <div id="plate-list">
+                    <button id="45lb-plate" onclick="increaseLoad(45)">45 LBS</button>
+                    <button id="35lb-plate" onclick="increaseLoad(35)">35 LBS</button>
+                    <button id="25lb-plate" onclick="increaseLoad(25)">25 LBS</button>
+                    <button id="10lb-plate" onclick="increaseLoad(10)">10 LBS</button>
+                    <button id="5lb-plate" onclick="increaseLoad(5)">5 LBS</button>
+                    <button id="2.5lb-plate" onclick="increaseLoad(2.5)">2.5 LBS</button>
+                </div>
+            </div>
+            <button id="toggle-btn" onclick="toggle(standardPlatesEl)">Show/Hide</button>
+    
+            <h4>Competition Plates (KGS)</h4>
+            <div id="competition-plates">
+                <br>
+                <div id="plate-list">
+                    <button id="25kg-plate">25 KGS</button>
+                    <button id="20kg-plate">20 KGS</button>
+                    <button id="15kg-plate">15 KGS</button>
+                    <button id="10kg-plate">10 KGS</button>
+                    <button id="5kg-plate">5 KGS</button>
+                    <button id="2.5kg-plate">2.5 KGS</button>
+                    <button id="1.25kg-plate">1.25 KGS</button>
+                    <button id="0.5kg-plate">0.5 KGS</button>
+                </div>
+            </div>
+            <button id="toggle-btn" onclick="toggle(competitionPlatesEl)">Show/Hide</button>
         </div>
-
-        <div class="competition-plates">
-            <p>Competition Plates (KGS)</p>
-            <br>
-            <button id="25kg-plate">25 KGS</button>
-            <button id="20kg-plate">20 KGS</button>
-            <button id="15kg-plate">15 KGS</button>
-            <button id="10kg-plate">10 KGS</button>
-            <button id="5kg-plate">5 KGS</button>
-            <button id="2.5kg-plate">2.5 KGS</button>
-            <button id="1.25kg-plate">1.25 KGS</button>
-            <button id="0.5kg-plate">0.5 KGS</button>
-        </div>
-
+        
     </div>
     <script src="main.js"></script>
 </body>

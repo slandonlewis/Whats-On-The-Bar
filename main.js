@@ -1,5 +1,5 @@
 let amountEl = document.querySelector('#amount-el')
-// initial amounts
+// initial amounts and values
 let barWeight = 45
 let totalWeight = barWeight
 let unitSetting = 'LBS'
@@ -7,6 +7,8 @@ let plateArray = []
 let plateImages = []
 let plateDisplayLeft = document.querySelector('#plate-display-left')
 let plateDisplayRight = document.querySelector('#plate-display-right')
+let standardPlatesEl = document.querySelector(`#standard-plates`)
+let competitionPlatesEl = document.querySelector(`#competition-plates`)
 amountEl.textContent = `${totalWeight} ${unitSetting}`
 
 // switch conversion between lbs and kgs
@@ -82,4 +84,14 @@ let clearAll = () => {
         totalWeight = 20
     }
     amountEl.textContent = `${totalWeight} ${unitSetting}`
+}
+
+// show or hide targeted plate selection
+let toggle = (plateSelection) => {
+    // alert(plateSelection.id)
+    if (plateSelection.className === 'hide') {
+        plateSelection.className = ''
+    } else {
+        plateSelection.className = 'hide'
+    }
 }
