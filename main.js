@@ -1,14 +1,5 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
-
 // initial variables for dom elements and other stuff
 const amountEl = document.querySelector('#amount-el')
-// const appSettings = {
-//     databaseURL: "https://whatsonthebar-default-rtdb.firebaseio.com/"
-// }
-// const app = initializeApp(appSettings)
-// const database = getDatabase(app)
-// const barsInDB = ref(database, "barbellList")
 
 // initial amounts and values
 let barWeight = 45
@@ -16,11 +7,13 @@ let totalWeight = barWeight
 let unitSetting = 'LBS'
 let plateArray = []
 let plateImages = []
+amountEl.textContent = `${totalWeight} ${unitSetting}`
+
+// HTML elements 
 let plateDisplayLeft = document.querySelector('#plate-display-left')
 let plateDisplayRight = document.querySelector('#plate-display-right')
 let standardPlatesEl = document.querySelector(`#standard-plates`)
 let competitionPlatesEl = document.querySelector(`#competition-plates`)
-amountEl.textContent = `${totalWeight} ${unitSetting}`
 
 // switch conversion between lbs and kgs
 let changeUnit = (unitValue) => {
