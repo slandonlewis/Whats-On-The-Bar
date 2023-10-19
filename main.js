@@ -28,11 +28,11 @@ let changeUnit = (unitValue) => {
         if (unitSetting === 'LBS') {
             totalWeight *= 2.2
             unitSetting = 'LBS'
-            amountEl.textContent = `${totalWeight} ${unitSetting}`
+            amountEl.textContent = `${totalWeight.toFixed(2)} ${unitSetting}`
         } else if (unitSetting === 'KGS') {
             totalWeight /= 2.2
             unitSetting = 'KGS'
-            amountEl.textContent = `${totalWeight} ${unitSetting}`
+            amountEl.textContent = `${totalWeight.toFixed(2)} ${unitSetting}`
         } else {
             console.log('Invalid Unit Setting...')
         }
@@ -50,7 +50,7 @@ let increaseLoad = (plateWeight) => {
     } else {
         let addedValue = plateWeight * 2
         totalWeight += addedValue
-        amountEl.textContent = `${totalWeight} ${unitSetting}`
+        amountEl.textContent = `${totalWeight.toFixed(2)} ${unitSetting}`
         plateArray.push(plateWeight)
         // EXPERIMENTAL: Add image of plate on screen
         plateImages.push(`<img src='./${plateWeight}.png'</img>`)
@@ -66,7 +66,7 @@ let decreaseLoad = () => {
     } else {
         let subtractedValue = plateArray[plateArray.length - 1] * 2
         totalWeight -= subtractedValue
-        amountEl.textContent = `${totalWeight} ${unitSetting}`
+        amountEl.textContent = `${totalWeight.toFixed(2)} ${unitSetting}`
         plateArray.pop()
         console.log(plateArray)
         // EXPERIMENTAL: Remove image of plate on screen

@@ -3,23 +3,29 @@
     align-items: center;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-    float: left;
-    /* border-style: dashed; */
-    /* border-radius: 5px; */
-    /* border-color: blue; */
+    /* float: left; */
+    /* float: right; */
 }
 
 #plate-display-right {
     display: flex;
     align-items: center;
-    float: right;
-    /* border-style: dashed; */
-    /* border-radius: 5px; */
-    /* border-color: blue; */
+    /* float: left; */
+    /* float: right; */
 }
 
 #plate-display {
     margin-bottom: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#amount-el {
+    background-color: grey;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: aliceblue;
 }
 
 body {
