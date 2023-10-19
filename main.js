@@ -1,4 +1,15 @@
-let amountEl = document.querySelector('#amount-el')
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
+import { getDatabase, ref } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+
+// initial variables for dom elements and other stuff
+const amountEl = document.querySelector('#amount-el')
+// const appSettings = {
+//     databaseURL: "https://whatsonthebar-default-rtdb.firebaseio.com/"
+// }
+// const app = initializeApp(appSettings)
+// const database = getDatabase(app)
+// const barsInDB = ref(database, "barbellList")
+
 // initial amounts and values
 let barWeight = 45
 let totalWeight = barWeight

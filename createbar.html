@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Barbell</title>
+</head>
+<body>
+    <div id="new-bar-form">
+        <h1>Create New Barbell</h1>
+        <p>Barbell Name:</p>
+        <input type="text" id="bar-name-input" placeholder="Example: Standard Olympic Barbell" width="1000">
+    
+        <p>Base Weight:</p>
+        <input type="number" id="bar-weight-input" placeholder="45">
+    
+        <p>Unit Type</p>
+        <input type="radio" id="pounds-btn" value="LBS">
+        <label for="pounds">LBS</label>
+        <input type="radio" id="kilos-btn" value="KGS">
+        <label for="kilos">KGS</label>
+    </div>
+
+    <button id="bar-submit">Submit</button>
+    <a href="index.html">
+        <button>Go Back</button>
+    </a>
+</body>
+<script src="createNewBar.js" type="module"></script>
+</html>
