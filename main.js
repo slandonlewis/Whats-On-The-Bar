@@ -48,11 +48,17 @@ let increaseLoad = (plateWeight) => {
         // limit number of plates
         alert(`Don't hog all the plates, brother!`)
     } else {
-        let addedValue = plateWeight * 2
+        // if unit setting is lbs then go by the values passed in since they are already converted to lbs, otherwise divide by 2.2 to get accurate kilo measurement
+        let addedValue
+        if (unitSetting === 'LBS') {
+            addedValue = plateWeight * 2
+        } else {
+            addedValue = plateWeight * 2 / 2.20462
+        }
         totalWeight += addedValue
         amountEl.textContent = `${totalWeight.toFixed(2)} ${unitSetting}`
         plateArray.push(plateWeight)
-        // EXPERIMENTAL: Add image of plate on screen
+        // Add image of plate on screen
         plateImages.push(`<img src='./${plateWeight}.png'</img>`)
         plateDisplayLeft.innerHTML = plateImages.join('')
         plateDisplayRight.innerHTML = plateImages.join('')
