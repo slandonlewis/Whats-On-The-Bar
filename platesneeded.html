@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Weights Do I Need?</title>
+</head>
+<body>
+    <h1>What Weights Do I Need?</h1>
+    <h3>So you're following a training program that tells you what weight you need to us for any given set. But how do you figure out what plates are necessary?
+        Not a problem! Just type in the weight you need loaded, select what barbell you are using, choose your unit of measurement (LBS or KGS), and we will tell you
+        the minimum amount of plates you need to load on the bar!
+    </h3>
+
+    <p>Weight Needed:</p>
+    <input type="number" placeholder="315">
+
+    <input type="radio" id="pounds" name="unit" value="LBS" onclick="changeUnit('LBS')">
+    <label for="pounds">LBS</label>
+    <input type="radio" id="kilos" name="unit" value="KGS" onclick="changeUnit('KGS')">
+    <label for="kilos">KGS</label>
+
+    <p>Bar Type:</p>
+    <select name="bar-select" id="bar-select">
+        <option value="standard-olympic-bar">Standard Olympic Barbell - 45 LBS</option>
+        <option value="#">2</option>
+        <option value="#">3</option>
+    </select>
+
+    <button id="calculate-btn">Calculate</button>
+
+    <p id="plates-needed-el">Fill out the info needed and click "Calculate" to find out what plates you need here.</p>
+
+</body>
+<script>alert('This page is still a work in progress! No coding has been done but this is a template for what the page will be like.')</script>
+</html>
