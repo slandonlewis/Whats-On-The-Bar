@@ -1,3 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300&family=Teko&display=swap');
+
+body {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    color: aliceblue;
+    background-image: -webkit-linear-gradient(rgb(58, 58, 58), black);
+}
+
+button {
+  transition: transform 0.3s;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 900;
+  background-color: rgb(77, 77, 145);
+  color: aliceblue;
+  border-radius: 3px;
+  border-style: none;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+select {
+    background-color: rgb(30, 30, 96);
+    color: aliceblue;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 900;
+    padding-left: 5px;
+    padding-right: 5px;
+    transition: 0.1s;
+}
+
+select:hover {
+    box-shadow: 0px 0px 10px rgb(103, 103, 103);
+}
+
+#top {
+    background-color: rgb(89, 125, 209);
+    color: aliceblue;
+    margin: 0;
+    padding: 0;
+}
+
 #plate-display-left {
     display: flex;
     align-items: center;
@@ -15,7 +60,6 @@
 }
 
 #plate-display {
-    margin-bottom: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,13 +67,9 @@
 
 #amount-el {
     background-color: grey;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 65px;
+    padding-right: 65px;
     color: aliceblue;
-}
-
-body {
-    text-align: center;
 }
 
 .hide {
@@ -37,24 +77,30 @@ body {
 }
 
 .plate-selection {
-    border-style: solid;
+    margin-top: 1%;
     border-radius: 5px;
     padding: 2%;
     padding-bottom: 10px;
+    background-color: rgb(95, 95, 198);
+    color: aliceblue;
 }
 
 #plate-list {
-    border-style: solid;
     border-radius: 5px;
     margin: 1px;
     padding: 5px;
+    background-color: rgb(172, 172, 255);
 }
 
 #plate-options-menu {
-    border-style: solid;
     border-radius: 5px;
     margin: 10px;
     padding: 10px;
     max-height: 150px;
     overflow: auto;
+    background-color: rgb(23, 23, 82);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 100px;
 }

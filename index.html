@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>What's On The Bar?</h1>
-    <h2>Calculate what you are lifting</h2>
+    <div id="top">
+        <h1>What's On The Bar?</h1>
+    </div>
+    <h3>Calculate what you are lifting</h3>
 
     <!-- EXPERIMENTAL: Weight plate display -->
     <div id="plate-display">
@@ -37,7 +39,7 @@
     </a>
     
     <div class="plate-selection">
-        <h3>Plate Selection</h3>
+        <h2>Plate Selection</h2>
         <button onclick="decreaseLoad()">REMOVE LAST PLATE</button>
         <button onclick="clearAll()">CLEAR ALL</button>
         <div id="plate-options-menu">
@@ -73,8 +75,7 @@
             </div>
             <button id="toggle-btn" onclick="toggle(competitionPlatesEl)">Show/Hide</button>
         </div>
-
-        <p>Not sure what weights to put on the bar for your next set? Click here to find out!</p>
+        
         <a href="platesneeded.html">
             <button>What Plates Do I Load?</button>
         </a>
