@@ -35,17 +35,17 @@ barSubmitEl.addEventListener('click', function() {
     // set name and weight properties based on input values from form
     newBarToSubmit.name = barNameInputEl.value
     if (unitSetting === "LBS") {
-        newBarToSubmit.weightInLBS = barWeightInput.value
-        newBarToSubmit.weightInKGS = barWeightInput.value / 2.2
-        alert(`Barbell "${newBarToSubmit.name}", weighing ${newBarToSubmit.weightInLBS} LBS
-        or ${newBarToSubmit.weightInKGS} KGS, will now be submitted!`)
+        newBarToSubmit.weightInLBS = parseFloat(barWeightInput.value)
+        newBarToSubmit.weightInKGS = parseFloat(barWeightInput.value / 2.2)
+        alert(`Barbell "${newBarToSubmit.name}", weighing ${newBarToSubmit.weightInLBS.toFixed(2)} LBS
+        or ${newBarToSubmit.weightInKGS.toFixed(2)} KGS, will now be submitted!`)
         push(barsInDB, newBarToSubmit)
         location.reload()
     } else if (unitSetting === "KGS") {
-        newBarToSubmit.weightInLBS = barWeightInput.value * 2.2
-        newBarToSubmit.weightInKGS = barWeightInput.value
-        alert(`Barbell "${newBarToSubmit.name}", weighing ${newBarToSubmit.weightInLBS} LBS
-        or ${newBarToSubmit.weightInKGS} KGS, will now be submitted!`)
+        newBarToSubmit.weightInLBS = parseFloat(barWeightInput.value * 2.2)
+        newBarToSubmit.weightInKGS = parseFloat(barWeightInput.value)
+        alert(`Barbell "${newBarToSubmit.name}", weighing ${newBarToSubmit.weightInLBS.toFixed(2)} LBS
+        or ${newBarToSubmit.weightInKGS.toFixed(2)} KGS, will now be submitted!`)
         push(barsInDB, newBarToSubmit)
         location.reload()
     } else {
