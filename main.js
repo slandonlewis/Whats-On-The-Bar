@@ -1,3 +1,23 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+const appSettings = {
+    databaseURL: "https://whatsonthebar-default-rtdb.firebaseio.com/"
+}
+const app = initializeApp(appSettings)
+const database = getDatabase(app)
+const barsInDB = ref(database, "barbellList")
+
+// List all bars in database via bar selection
+onValue(barsInDB, function(snapshot) {
+    let barsArray = Object.values(snapshot.val())
+    let barSelectionHTML = ""
+    barsArray.forEach(bar => {
+        barSelectionHTML += `<option value="${bar.name}">${bar.name} - ${Math.round(bar.weightInKGS)} KG / ${Math.round(bar.weightInLBS)} LBS</option>`
+    });
+    // join barSelectionHTML with the dropdown
+    barSelectionEl.innerHTML += barSelectionHTML
+})
+
 // initial variables for dom elements and other stuff
 const amountEl = document.querySelector('#amount-el')
 
@@ -14,6 +34,7 @@ let plateDisplayLeft = document.querySelector('#plate-display-left')
 let plateDisplayRight = document.querySelector('#plate-display-right')
 let standardPlatesEl = document.querySelector(`#standard-plates`)
 let competitionPlatesEl = document.querySelector(`#competition-plates`)
+let barSelectionEl = document.querySelector('#bar-select')
 
 // switch conversion between lbs and kgs
 let changeUnit = (unitValue) => {
