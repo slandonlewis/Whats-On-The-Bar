@@ -31,10 +31,12 @@ const resetForm = () => {
 //change unit setting to lbs
 lbsSelectEl.addEventListener('click', function() {
     unitSetting = "LBS"
+    kgsSelectEl.checked = false;
 })
 //change unit setting to kgs
 kgsSelectEl.addEventListener('click', function() {
     unitSetting = "KGS"
+    lbsSelectEl.checked = false;
 })
 
 // click to submit
