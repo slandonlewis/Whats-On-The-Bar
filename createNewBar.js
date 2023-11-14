@@ -17,8 +17,15 @@ let unitSetting = null
 // bar object to submit
 let newBarToSubmit = {
     name: "",
-    weightInLBS: "",
-    weightInKGS: ""
+    weightInLBS: 0,
+    weightInKGS: 0
+}
+
+const resetForm = () => {
+    barNameInputEl.value = "";
+    barWeightInput.value = "";
+    lbsSelectEl.checked = false;
+    kgsSelectEl.checked = false;
 }
 
 //change unit setting to lbs
@@ -40,14 +47,14 @@ barSubmitEl.addEventListener('click', function() {
         alert(`Barbell "${newBarToSubmit.name}", weighing ${newBarToSubmit.weightInLBS.toFixed(2)} LBS
         or ${newBarToSubmit.weightInKGS.toFixed(2)} KGS, will now be submitted!`)
         push(barsInDB, newBarToSubmit)
-        location.reload()
+        resetForm()
     } else if (unitSetting === "KGS") {
         newBarToSubmit.weightInLBS = parseFloat(barWeightInput.value * 2.2)
         newBarToSubmit.weightInKGS = parseFloat(barWeightInput.value)
         alert(`Barbell "${newBarToSubmit.name}", weighing ${newBarToSubmit.weightInLBS.toFixed(2)} LBS
         or ${newBarToSubmit.weightInKGS.toFixed(2)} KGS, will now be submitted!`)
         push(barsInDB, newBarToSubmit)
-        location.reload()
+        resetForm()
     } else {
         alert('One or more fields have not been filled...')
     }
