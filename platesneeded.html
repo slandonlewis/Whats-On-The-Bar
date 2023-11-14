@@ -14,18 +14,20 @@
     </h3>
 
     <p>Weight Needed:</p>
-    <input type="number" placeholder="How much weight?">
+    <input
+        id="weight-input" 
+        type="number" 
+        placeholder="How much weight?"
+    >
 
-    <input type="radio" id="pounds" name="unit" value="LBS" onclick="changeUnit('LBS')">
+    <input type="radio" class="unit-btns" name="unit" value="LBS">
     <label for="pounds">LBS</label>
-    <input type="radio" id="kilos" name="unit" value="KGS" onclick="changeUnit('KGS')">
+    <input type="radio" class="unit-btns" name="unit" value="KGS">
     <label for="kilos">KGS</label>
 
     <p>Bar Type:</p>
     <select name="bar-select" id="bar-select">
         <option value="standard-olympic-bar">Standard Olympic Barbell - 45 LBS</option>
-        <option value="#">2</option>
-        <option value="#">3</option>
     </select>
 
     <button id="calculate-btn">Calculate</button>
@@ -39,5 +41,6 @@
     </a>
 
 </body>
-<script>alert('This page is still a work in progress! No coding has been done but this is a template for what the page will be like.')</script>
+<!-- <script>alert('This page is still a work in progress! No coding has been done but this is a template for what the page will be like.')</script> -->
+<script src="platesneeded.js" type="module"></script>
 </html>

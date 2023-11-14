@@ -10,6 +10,7 @@ const plateBtns = document.querySelectorAll('.plate-btn')
 const unitBtns = document.querySelectorAll('.unit-btn')
 
 // initial amounts and values
+let barSetting = "Standard Olympic Barbell - 45 LBS"
 let barWeight = 45
 let totalWeight = barWeight
 let unitSetting = 'LBS'
