@@ -2,11 +2,10 @@
 const amountEl = document.querySelector('#amount-el')
 const plateDisplayLeft = document.querySelector('#plate-display-left')
 const plateDisplayRight = document.querySelector('#plate-display-right')
-const standardPlatesEl = document.querySelector(`#standard-plates`)
-const competitionPlatesEl = document.querySelector(`#competition-plates`)
 const barSelectionEl = document.querySelector('#bar-select')
 const removeLastBtn = document.querySelector("#remove-last")
 const clearBtn = document.querySelector('#clear-btn')
+const toggleBtns = document.querySelectorAll('.toggle-btn')
 const plateBtns = document.querySelectorAll('.plate-btn')
 const unitBtns = document.querySelectorAll('.unit-btn')
 
@@ -131,11 +130,16 @@ clearBtn.addEventListener('click', function() {
 })
 
 // show or hide targeted plate selection
-let toggle = (plateSelection) => {
-    // alert(plateSelection.id)
-    if (plateSelection.className === 'hide') {
-        plateSelection.className = ''
+let toggle = (event) => {
+    let plateSelectionValue = event.target.value
+    let plateSelectionDiv = document.querySelector(`#${plateSelectionValue}`)
+    if (plateSelectionDiv.className === 'hide') {
+        plateSelectionDiv.className = ''
     } else {
-        plateSelection.className = 'hide'
+        plateSelectionDiv.className = 'hide'
     }
 }
+
+toggleBtns.forEach(btn => {
+    btn.addEventListener('click', toggle)
+})
