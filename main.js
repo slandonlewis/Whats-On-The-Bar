@@ -1,3 +1,23 @@
+// HTML elements 
+const amountEl = document.querySelector('#amount-el')
+const plateDisplayLeft = document.querySelector('#plate-display-left')
+const plateDisplayRight = document.querySelector('#plate-display-right')
+const standardPlatesEl = document.querySelector(`#standard-plates`)
+const competitionPlatesEl = document.querySelector(`#competition-plates`)
+const barSelectionEl = document.querySelector('#bar-select')
+const plateBtns = document.querySelectorAll('.plate-btn')
+const unitBtns = document.querySelectorAll('.unit-btn')
+
+// initial amounts and values
+let barWeight = 45
+let totalWeight = barWeight
+let unitSetting = 'LBS'
+let plateArray = []
+let plateImages = []
+amountEl.textContent = `${totalWeight} ${unitSetting}`
+
+
+// Grabbing barbells from database
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 const appSettings = {
@@ -18,33 +38,15 @@ onValue(barsInDB, function(snapshot) {
     barSelectionEl.innerHTML += barSelectionHTML
 })
 
-// initial variables for dom elements and other stuff
-const amountEl = document.querySelector('#amount-el')
-
-// initial amounts and values
-let barWeight = 45
-let totalWeight = barWeight
-let unitSetting = 'LBS'
-let plateArray = []
-let plateImages = []
-amountEl.textContent = `${totalWeight} ${unitSetting}`
-
-// HTML elements 
-let plateDisplayLeft = document.querySelector('#plate-display-left')
-let plateDisplayRight = document.querySelector('#plate-display-right')
-let standardPlatesEl = document.querySelector(`#standard-plates`)
-let competitionPlatesEl = document.querySelector(`#competition-plates`)
-let barSelectionEl = document.querySelector('#bar-select')
-
 // switch conversion between lbs and kgs
-let changeUnit = (unitValue) => {
+let changeUnit = (event) => {
+    let unitValue = event.target.value
     // make sure same value wasn't clicked twice since we are switching
     if (unitValue === unitSetting) {
         console.log(`This setting is already selected!`)
     } else {
         // change unit to lbs/kgs
         unitSetting = unitValue
-        console.log(unitSetting)
         // convert total weight to lbs/kgs
         if (unitSetting === 'LBS') {
             totalWeight *= 2.2
@@ -59,6 +61,11 @@ let changeUnit = (unitValue) => {
         }
     }
 }
+
+// event listener for unit selection buttons
+unitBtns.forEach(unitBtn => {
+    unitBtn.addEventListener('click', changeUnit)
+})
 
 // take value of selected weight and add two plates to each side of bar
 let increaseLoad = (plateWeight) => {

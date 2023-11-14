@@ -23,9 +23,9 @@
         </div>
     </div>
 
-    <input type="radio" id="pounds" name="unit" value="LBS" onclick="changeUnit('LBS')">
+    <input type="radio" class="unit-btn" id="pounds" name="unit" value="LBS">
     <label for="pounds">LBS</label>
-    <input type="radio" id="kilos" name="unit" value="KGS" onclick="changeUnit('KGS')">
+    <input type="radio" class="unit-btn" id="kilos" name="unit" value="KGS">
     <label for="kilos">KGS</label>
 
     <p>Barbell Type: </p>
@@ -45,12 +45,12 @@
             <div id="standard-plates">
                 <br>
                 <div id="plate-list">
-                    <button id="45lb-plate" onclick="increaseLoad(45)">45 LBS</button>
-                    <button id="35lb-plate" onclick="increaseLoad(35)">35 LBS</button>
-                    <button id="25lb-plate" onclick="increaseLoad(25)">25 LBS</button>
-                    <button id="10lb-plate" onclick="increaseLoad(10)">10 LBS</button>
-                    <button id="5lb-plate" onclick="increaseLoad(5)">5 LBS</button>
-                    <button id="2.5lb-plate" onclick="increaseLoad(2.5)">2.5 LBS</button>
+                    <button class="plate-btn" id="45">45 LBS</button>
+                    <button class="plate-btn" id="35">35 LBS</button>
+                    <button class="plate-btn" id="25">25 LBS</button>
+                    <button class="plate-btn" id="10">10 LBS</button>
+                    <button class="plate-btn" id="5">5 LBS</button>
+                    <button class="plate-btn" id="2.5">2.5 LBS</button>
                 </div>
             </div>
             <button id="toggle-btn" onclick="toggle(standardPlatesEl)">Show/Hide</button>
@@ -60,15 +60,15 @@
                 <br>
                 <div id="plate-list">
                     <!-- Values passed into increaseLoad() are typed as pounds instead of kilos to save time with logic -->
-                    <button id="25kg-plate" onclick="increaseLoad(55)">25 KGS</button>
-                    <button id="20kg-plate" onclick="increaseLoad(44)">20 KGS</button>
-                    <button id="15kg-plate" onclick="increaseLoad(33)">15 KGS</button>
-                    <button id="10kg-plate" onclick="increaseLoad(22)">10 KGS</button>
-                    <button id="5kg-plate" onclick="increaseLoad(11)">5 KGS</button>
-                    <button id="2.5kg-plate" onclick="increaseLoad(5.5)">2.5 KGS</button>
-                    <button id="1.25kg-plate" onclick="increaseLoad(2.75)">1.25 KGS</button>
-                    <button id="0.5kg-plate" onclick="increaseLoad(1.1)">0.5 KGS</button>
-                    <button id="0.25kg-plate" onclick="increaseLoad(0.55)">0.25 KGS</button>
+                    <button class="plate-btn" id="55">25 KGS</button>
+                    <button class="plate-btn" id="44">20 KGS</button>
+                    <button class="plate-btn" id="33">15 KGS</button>
+                    <button class="plate-btn" id="22">10 KGS</button>
+                    <button class="plate-btn" id="11">5 KGS</button>
+                    <button class="plate-btn" id="5.5">2.5 KGS</button>
+                    <button class="plate-btn" id="2.75">1.25 KGS</button>
+                    <button class="plate-btn" id="1.1">0.5 KGS</button>
+                    <button class="plate-btn" id="0.55">0.25 KGS</button>
                 </div>
             </div>
             <button id="toggle-btn" onclick="toggle(competitionPlatesEl)">Show/Hide</button>
