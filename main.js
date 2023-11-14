@@ -5,6 +5,7 @@ const plateDisplayRight = document.querySelector('#plate-display-right')
 const standardPlatesEl = document.querySelector(`#standard-plates`)
 const competitionPlatesEl = document.querySelector(`#competition-plates`)
 const barSelectionEl = document.querySelector('#bar-select')
+const removeLastBtn = document.querySelector("#remove-last")
 const plateBtns = document.querySelectorAll('.plate-btn')
 const unitBtns = document.querySelectorAll('.unit-btn')
 
@@ -100,7 +101,7 @@ plateBtns.forEach(plateBtn => {
 })
 
 // remove most recent plate added
-let decreaseLoad = () => {
+removeLastBtn.addEventListener('click', function() {
     if ( plateArray.length === 0 ) {
         console.log('There are no plates to remove!')
     } else {
@@ -108,16 +109,11 @@ let decreaseLoad = () => {
         totalWeight -= subtractedValue
         amountEl.textContent = `${totalWeight.toFixed(2)} ${unitSetting}`
         plateArray.pop()
-        console.log(plateArray)
-        // EXPERIMENTAL: Remove image of plate on screen
         plateImages.pop()
         plateDisplayLeft.innerHTML = plateImages.join('')
         plateDisplayRight.innerHTML = plateImages.join('')
     }
-}
-
-// event listener for removing last plate
-
+})
 
 // empty the barbell
 let clearAll = () => {
