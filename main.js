@@ -68,7 +68,8 @@ unitBtns.forEach(unitBtn => {
 })
 
 // take value of selected weight and add two plates to each side of bar
-let increaseLoad = (plateWeight) => {
+let increaseLoad = (event) => {
+    let plateWeight = event.target.value
     if ( totalWeight >= 1000 ) {
         // limit bar weight
         alert('Nice try, bro. But that bar is definitely bent by now...')
@@ -93,6 +94,11 @@ let increaseLoad = (plateWeight) => {
     }
 }
 
+// event listener for each plate button
+plateBtns.forEach(plateBtn => {
+    plateBtn.addEventListener('click', increaseLoad)
+})
+
 // remove most recent plate added
 let decreaseLoad = () => {
     if ( plateArray.length === 0 ) {
@@ -109,6 +115,9 @@ let decreaseLoad = () => {
         plateDisplayRight.innerHTML = plateImages.join('')
     }
 }
+
+// event listener for removing last plate
+
 
 // empty the barbell
 let clearAll = () => {
