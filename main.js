@@ -6,6 +6,7 @@ const standardPlatesEl = document.querySelector(`#standard-plates`)
 const competitionPlatesEl = document.querySelector(`#competition-plates`)
 const barSelectionEl = document.querySelector('#bar-select')
 const removeLastBtn = document.querySelector("#remove-last")
+const clearBtn = document.querySelector('#clear-btn')
 const plateBtns = document.querySelectorAll('.plate-btn')
 const unitBtns = document.querySelectorAll('.unit-btn')
 
@@ -116,7 +117,7 @@ removeLastBtn.addEventListener('click', function() {
 })
 
 // empty the barbell
-let clearAll = () => {
+clearBtn.addEventListener('click', function() {
     plateArray = []
     plateImages = []
     plateDisplayLeft.innerHTML = ''
@@ -127,7 +128,7 @@ let clearAll = () => {
         totalWeight = 20
     }
     amountEl.textContent = `${totalWeight} ${unitSetting}`
-}
+})
 
 // show or hide targeted plate selection
 let toggle = (plateSelection) => {
