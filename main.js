@@ -56,8 +56,6 @@ onValue(barsInDB, function(snapshot) {
     });
     // join barSelectionHTML with the dropdown
     barSelectionEl.innerHTML += barSelectionHTML
-    console.log(myBars)
-    console.log(barOptions)
 })
 
 // switch conversion between lbs and kgs
@@ -65,7 +63,7 @@ let changeUnit = (event) => {
     let unitValue = event.target.value
     // make sure same value wasn't clicked twice since we are switching
     if (unitValue === unitSetting) {
-        console.log(`This setting is already selected!`)
+        alert(`This setting is already selected!`)
     } else {
         // change unit to lbs/kgs
         unitSetting = unitValue
@@ -79,7 +77,7 @@ let changeUnit = (event) => {
             unitSetting = 'KGS'
             amountEl.textContent = `${parseFloat(totalWeight.toFixed(2))} ${unitSetting}`
         } else {
-            console.log('Invalid Unit Setting...')
+            alert('Invalid Unit Setting...')
         }
     }
 }
@@ -96,7 +94,6 @@ let changeBar = (event) => {
     } else {
         barWeight = barSetting.weightInKGS
     }
-    console.log(barWeight)
     let plateWeight = plateArray.reduce((a, b) => a + b, 0)
     totalWeight = barWeight + plateWeight*2
     amountEl.textContent = `${parseFloat(totalWeight.toFixed(2))} ${unitSetting}`   
@@ -128,7 +125,6 @@ let increaseLoad = (event) => {
         }
         totalWeight += addedValue
         let parsedTotal = parseFloat(totalWeight)
-        console.log(parsedTotal)
         amountEl.textContent = `${parsedTotal.toFixed(2)} ${unitSetting}`
         plateArray.push(plateWeight)
         // Add image of plate on screen
@@ -146,7 +142,7 @@ plateBtns.forEach(plateBtn => {
 // remove most recent plate added
 removeLastBtn.addEventListener('click', function() {
     if ( plateArray.length === 0 ) {
-        console.log('There are no plates to remove!')
+        alert('There are no plates to remove!')
     } else {
         let subtractedValue = plateArray[plateArray.length - 1] * 2
         totalWeight -= subtractedValue
