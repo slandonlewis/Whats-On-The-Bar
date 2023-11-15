@@ -144,7 +144,17 @@ removeLastBtn.addEventListener('click', function() {
     if ( plateArray.length === 0 ) {
         alert('There are no plates to remove!')
     } else {
-        let subtractedValue = plateArray[plateArray.length - 1] * 2
+        let subtractedValue
+        if (unitSetting === 'LBS') {
+            subtractedValue = plateArray[plateArray.length - 1] * 2
+        } else if (unitSetting === 'KGS') {
+            // grab the most recent plate's value
+            let plateToConvertToKgs = parseFloat(plateArray[plateArray.length - 1])
+            // convert its value from lb to kg
+            let lbsToKgs = plateToConvertToKgs / 2.2046
+            // multiply by 2 since one plate per side is removed
+            subtractedValue = lbsToKgs * 2   
+        }
         totalWeight -= subtractedValue
         amountEl.textContent = `${parseFloat(totalWeight.toFixed(2))} ${unitSetting}`
         plateArray.pop()
