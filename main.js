@@ -1,3 +1,5 @@
+// //@ts-check
+
 // HTML elements 
 const amountEl = document.querySelector('#amount-el')
 const plateDisplayLeft = document.querySelector('#plate-display-left')
@@ -8,11 +10,20 @@ const clearBtn = document.querySelector('#clear-btn')
 const toggleBtns = document.querySelectorAll('.toggle-btn')
 const plateBtns = document.querySelectorAll('.plate-btn')
 const unitBtns = document.querySelectorAll('.unit-btn')
+const barOptions = document.querySelectorAll('.bar-options')
 
 // initial amounts and values
-let barSetting = "Standard Olympic Barbell - 45 LBS"
-let barWeight = 45
-let totalWeight = barWeight
+let myBars = [
+    {
+        id: 0,
+        name: "Standard Olympic Barbell",
+        weightInLBS: 45,
+        weightInKGS: 20.45
+    }
+]
+let barSetting = myBars[0] 
+let barWeight = parseFloat(barSetting.weightInLBS.toFixed(2))
+let totalWeight = parseFloat(barWeight)
 let unitSetting = 'LBS'
 let plateArray = []
 let plateImages = []
@@ -34,10 +45,19 @@ onValue(barsInDB, function(snapshot) {
     let barsArray = Object.values(snapshot.val())
     let barSelectionHTML = ""
     barsArray.forEach(bar => {
-        barSelectionHTML += `<option value="${bar.name}">${bar.name} - ${Math.round(bar.weightInKGS)} KG / ${Math.round(bar.weightInLBS)} LBS</option>`
+        let barToAddToSelection = {
+            id: myBars.length,
+            name: bar.name,
+            weightInKGS: parseFloat(bar.weightInKGS),
+            weightInLBS: parseFloat(bar.weightInLBS)
+        }
+        myBars.push(barToAddToSelection)
+        barSelectionHTML += `<option class="bar-options" value="${barToAddToSelection.id}">${bar.name} - ${Math.round(bar.weightInKGS)} KG / ${Math.round(bar.weightInLBS)} LBS</option>`
     });
     // join barSelectionHTML with the dropdown
     barSelectionEl.innerHTML += barSelectionHTML
+    console.log(myBars)
+    console.log(barOptions)
 })
 
 // switch conversion between lbs and kgs
@@ -53,25 +73,45 @@ let changeUnit = (event) => {
         if (unitSetting === 'LBS') {
             totalWeight *= 2.2
             unitSetting = 'LBS'
-            amountEl.textContent = `${totalWeight.toFixed(2)} ${unitSetting}`
+            amountEl.textContent = `${parseFloat(totalWeight.toFixed(2))} ${unitSetting}`
         } else if (unitSetting === 'KGS') {
             totalWeight /= 2.2
             unitSetting = 'KGS'
-            amountEl.textContent = `${totalWeight.toFixed(2)} ${unitSetting}`
+            amountEl.textContent = `${parseFloat(totalWeight.toFixed(2))} ${unitSetting}`
         } else {
             console.log('Invalid Unit Setting...')
         }
     }
 }
-
 // event listener for unit selection buttons
 unitBtns.forEach(unitBtn => {
     unitBtn.addEventListener('click', changeUnit)
 })
 
+// change bar setting
+let changeBar = (event) => {
+    barSetting = myBars[parseInt(event.target.value)]
+    if (unitSetting === "LBS") {
+        barWeight = barSetting.weightInLBS
+    } else {
+        barWeight = barSetting.weightInKGS
+    }
+    console.log(barWeight)
+    let plateWeight = plateArray.reduce((a, b) => a + b, 0)
+    totalWeight = barWeight + plateWeight*2
+    amountEl.textContent = `${parseFloat(totalWeight.toFixed(2))} ${unitSetting}`   
+}
+
+// event listener for dropdown options
+// barOptions.forEach(bar => {
+//     bar.addEventListener('change', changeBar)
+// })
+const selectorEl = document.querySelector('#bar-select')
+selectorEl.addEventListener('change', changeBar)
+
 // take value of selected weight and add two plates to each side of bar
 let increaseLoad = (event) => {
-    let plateWeight = event.target.value
+    let plateWeight = parseFloat(event.target.value)
     if ( totalWeight >= 1000 ) {
         // limit bar weight
         alert('Nice try, bro. But that bar is definitely bent by now...')
@@ -87,7 +127,9 @@ let increaseLoad = (event) => {
             addedValue = plateWeight * 2 / 2.20462
         }
         totalWeight += addedValue
-        amountEl.textContent = `${totalWeight.toFixed(2)} ${unitSetting}`
+        let parsedTotal = parseFloat(totalWeight)
+        console.log(parsedTotal)
+        amountEl.textContent = `${parsedTotal.toFixed(2)} ${unitSetting}`
         plateArray.push(plateWeight)
         // Add image of plate on screen
         plateImages.push(`<img src='./${plateWeight}.png'</img>`)
@@ -108,7 +150,7 @@ removeLastBtn.addEventListener('click', function() {
     } else {
         let subtractedValue = plateArray[plateArray.length - 1] * 2
         totalWeight -= subtractedValue
-        amountEl.textContent = `${totalWeight.toFixed(2)} ${unitSetting}`
+        amountEl.textContent = `${parseFloat(totalWeight.toFixed(2))} ${unitSetting}`
         plateArray.pop()
         plateImages.pop()
         plateDisplayLeft.innerHTML = plateImages.join('')
@@ -123,9 +165,9 @@ clearBtn.addEventListener('click', function() {
     plateDisplayLeft.innerHTML = ''
     plateDisplayRight.innerHTML = ''
     if (unitSetting === 'LBS') {
-        totalWeight = 45
+        totalWeight = parseFloat(barSetting.weightInLBS.toFixed(2))
     } else {
-        totalWeight = 20
+        totalWeight = parseFloat(barSetting.weightInKGS.toFixed(2))
     }
     amountEl.textContent = `${totalWeight} ${unitSetting}`
 })
