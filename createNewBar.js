@@ -41,23 +41,25 @@ kgsSelectEl.addEventListener('click', function() {
 
 // click to submit
 barSubmitEl.addEventListener('click', function() {
-    // set name and weight properties based on input values from form
-    newBarToSubmit.name = barNameInputEl.value
-    if (unitSetting === "LBS") {
-        newBarToSubmit.weightInLBS = parseFloat(barWeightInput.value)
-        newBarToSubmit.weightInKGS = parseFloat(barWeightInput.value / 2.2)
-        alert(`Barbell "${newBarToSubmit.name}", weighing ${newBarToSubmit.weightInLBS.toFixed(2)} LBS
-        or ${newBarToSubmit.weightInKGS.toFixed(2)} KGS, will now be submitted!`)
-        push(barsInDB, newBarToSubmit)
-        resetForm()
-    } else if (unitSetting === "KGS") {
-        newBarToSubmit.weightInLBS = parseFloat(barWeightInput.value * 2.2)
-        newBarToSubmit.weightInKGS = parseFloat(barWeightInput.value)
-        alert(`Barbell "${newBarToSubmit.name}", weighing ${newBarToSubmit.weightInLBS.toFixed(2)} LBS
-        or ${newBarToSubmit.weightInKGS.toFixed(2)} KGS, will now be submitted!`)
-        push(barsInDB, newBarToSubmit)
-        resetForm()
-    } else {
+    // pain and im still probably forgetting something
+    if (
+        (barNameInputEl.value === null || barNameInputEl.value.length() === 0 )
+        (barWeightInput.value === null || barWeightInput.value.length() === 0 )
+        (unitSetting === null || unitSetting.length() === 0)
+        ) {
         alert('One or more fields have not been filled...')
     }
+
+    let isUnitLbs = unitSetting === "LBS" ? true : false
+    // set name and weight properties based on input values from form
+    newBarToSubmit.name = barNameInputEl.value
+    // really not necessary to refactor an if into a ternary here...
+    // but i really like the look of ternary statements
+    newBarToSubmit.weightInLBS = parseFloat(barWeightInput.value * (isUnitLbs ? 1 : 2.2))
+    newBarToSubmit.weightInKGS = parseFloat(barWeightInput.value / (isUnitLbs ? 2.2 : 1))
+
+    alert(`Barbell "${newBarToSubmit.name}", weighing ${newBarToSubmit.weightInLBS.toFixed(2)} LBS
+    or ${newBarToSubmit.weightInKGS.toFixed(2)} KGS, will now be submitted!`)
+    push(barsInDB, newBarToSubmit)
+    resetForm()
 })
